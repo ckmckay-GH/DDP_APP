@@ -36,7 +36,5 @@ shinyServer(function(input, output) {
         
         output$pred1 <- renderText({round(mtfitpred(),2)
         })        
-                
-##        output$inputWT <- renderText(input$sliderWT)
-##        output$inputHP <- renderText(input$sliderHP)  
+ 
 })

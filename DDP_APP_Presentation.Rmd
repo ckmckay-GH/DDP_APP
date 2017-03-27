@@ -16,10 +16,11 @@ data(mtcars)
 ## High-Level App Description
 
 - The app predicts a car's 1/4 mile time in seconds
-- A linear mode based on  the "mtcars" dataset generates the prediction
+- A linear model based on the "mtcars" dataset generates the prediction
 - User inputs are: car weight and horse power
 - The "mtcars" dataset and the "new Car" are disleyaed in a Plotly plot
-- Shiny App source code can be found here: 
+- Shiny App source code can be found here: https://github.com/ckmckay-GH/DDP_APP/tree/master
+- This presentation can be found at: http://rpubs.com/ckmckay/262716
 
 
 ## 1/4 Mile Time Prediction Model
@@ -54,4 +55,4 @@ plot_ly(mtcars, x = ~wt, y = ~hp, z = ~qsec,
 - Predicted 1/4 mile time in seconds will be dislpayed
 - 3D plot will update to include orange market for input and predicted car parameters
 
-- Click this lin k to try the app: 
+- Click this link to try the app: https://rollingbay1965.shinyapps.io/ddp_app/
