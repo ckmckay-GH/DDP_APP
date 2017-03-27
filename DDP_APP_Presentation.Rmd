@@ -1,0 +1,57 @@
+---
+title: "Shiny App Presentation"
+author: "Charles McKay"
+date: "3/27/2017"
+output: ioslides_presentation
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = FALSE)
+library(dplyr)
+library(plotly)
+set.seed(7892)
+data(mtcars)
+```
+
+## High-Level App Description
+
+- The app predicts a car's 1/4 mile time in seconds
+- A linear mode based on  the "mtcars" dataset generates the prediction
+- User inputs are: car weight and horse power
+- The "mtcars" dataset and the "new Car" are disleyaed in a Plotly plot
+- Shiny App source code can be found here: 
+
+
+## 1/4 Mile Time Prediction Model
+
+```{r cars, echo = TRUE}
+mtfit <- lm(qsec ~ wt + hp, data = mtcars)
+summary(mtfit)$coef
+```
+
+## Plotly Plot 
+
+```{r plot, warnings = FALSE, message=FALSE}
+mtcars$model <- rownames(mtcars)
+plot_ly(mtcars, x = ~wt, y = ~hp, z = ~qsec, 
+        hoverinfo = 'text', text = ~paste(model), name = "mtcars") %>%
+        add_markers() %>%
+        layout(title = "Car 1/4 Mile Time vs. Weight vs. Horse Power",
+                scene = list(
+                        title = "Car 1/4 Mile Time vs. Weight vs. Horse Power",
+                        xaxis = list(title = 'Weight (lbs 1000s)'),
+                        yaxis = list(title = 'Horse Power'),
+                        zaxis = list(title = '1/4 Mile Time (seconds)'))) %>%
+        add_trace(type = "scatter3d", x = 3.5, y = 200, z = 16.66, 
+                text = "New Car", name = 'New Car', mode = 'markers')
+```
+
+## App Instructions
+
+
+- Use sliders to input weight and horse power
+- Click on "Click fo Prediction" button
+- Predicted 1/4 mile time in seconds will be dislpayed
+- 3D plot will update to include orange market for input and predicted car parameters
+
+- Click this lin k to try the app: 

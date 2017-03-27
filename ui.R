@@ -21,21 +21,14 @@ shinyUI(fluidPage(
                 tags$br(),
                 h4("Predicted 1/4 Mile Time"),
                 tags$em(textOutput("pred1")," Seconds", style = "color:red;")
-              
-       
+             
     ),
     
      mainPanel(
         h3("Car Weight vs. Horse Power vs. 1/4 Mile Time"), 
         h4("New car added based on inupt and predicted values", style = "color:red;"),
         plotlyOutput("plot1",height = "500px")
-##        h3("New Car Data"),
-##        h5("Predicted 1/4 Mile Time in Seconds"),
-##        textOutput("pred1"),
-##        h5("Input Weight in Lbs"),
-##        textOutput("inputWT"),
-##        h5("Input Horse Power"),
-##        textOutput("inputHP")
+
     )
   )
 ))
